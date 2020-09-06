@@ -11,6 +11,9 @@
               formControlName="title"
             />
           </fieldset>
+          <ul *ngIf="title.dirty && title.invalid">
+            <li *ngIf="title.errors.required">請輸入標題</li>
+          </ul>
           <fieldset class="form-group">
             <textarea
               class="form-control"
@@ -27,6 +30,11 @@
               formControlName="body"
             ></textarea>
           </fieldset>
+          <ul *ngIf="body.dirty && body.invalid">
+            <li *ngIf="body.errors.required">請輸入內文</li>
+            <li *ngIf="body.errors.minlength">
+              內文長度需大於或等於個 {{ body.errors.minlength.requiredLength }} 字元</li>
+          </ul>
           <fieldset class="form-group">
             <input
               class="form-control"
@@ -44,7 +52,8 @@
               </span>
             </div>
           </fieldset>
-          <button type="submit" class="btn btn-lg btn-primary pull-xs-right">
+          <button type="submit" class="btn btn-lg btn-primary pull-xs-right"
+            [disabled]="post.invalid">
             Create Post
           </button>
         </form>
