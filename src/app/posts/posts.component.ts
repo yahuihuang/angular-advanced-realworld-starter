@@ -1,3 +1,5 @@
+import { PostService } from './../post.service';
+import { Article } from './../interfaces/article';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+  articles: Article[];
 
-  constructor() { }
+  constructor(private postService: PostService) {
+
+  }
 
   ngOnInit(): void {
+    this.postService.getArticles().subscribe(data => {
+      this.articles = data.articles;
+    });
   }
 
 }
