@@ -1,17 +1,17 @@
-<div class="post-page">
+<div class="post-page" *ngIf="article$ | async as article">
 
   <div class="banner">
     <div class="container">
 
-      <h1>{{ article?.title }}</h1>
+      <h1>{{ article.title }}</h1>
 
       <div class="post-meta">
         <a href="profile.html">
           <img src="http://i.imgur.com/Qr71crq.jpg" />
         </a>
         <div class="info">
-          <a href="profile.html" class="author">{{ article?.author }}</a>
-          <span class="date">{{ article?.createdAt }}</span>
+          <a href="profile.html" class="author">{{ article.author }}</a>
+          <span class="date">{{ article.createdAt }}</span>
         </div>
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-plus-round"></i>
@@ -33,7 +33,7 @@
 
     <div class="row post-content">
       <div class="col-md-12">
-        {{ article?.body }}
+        {{ article.body }}
       </div>
     </div>
 
@@ -45,13 +45,13 @@
           <img src="http://i.imgur.com/Qr71crq.jpg" />
         </a>
         <div class="info">
-          <a href="profile.html" class="author">{{ article?.author }}</a>
-          <span class="date">{{ article?.updatedAt }}</span>
+          <a href="profile.html" class="author">{{ article.author }}</a>
+          <span class="date">{{ article.updatedAt }}</span>
         </div>
 
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-plus-round"></i>
-          &nbsp; Follow {{ article?.author }}
+          &nbsp; Follow {{ article.author }}
           <span class="counter">(10)</span>
         </button>
         &nbsp;
