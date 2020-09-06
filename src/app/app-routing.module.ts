@@ -4,13 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+  // 空字串的路徑放後面，才會空的那一頁可以lazy loading
+  {
     path: '',
     component: LayoutComponent,
     loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
 ];
 
